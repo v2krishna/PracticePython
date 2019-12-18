@@ -1,0 +1,21 @@
+Dynamically typed4
+a =10
+a = "India"
+a = [1,2,3,5]
+
+Flexible
+
+Best Practices
+================
+    Identifiers can be started with
+    underscore
+    upper alphabets or lowercase
+    No special characters other than underscore
+    no keywords are allowed
+
+All the keywords are lowercase except 3
+--------------------------------------
+True
+False
+None
+33 keywords total
