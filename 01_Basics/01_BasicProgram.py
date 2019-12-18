@@ -24,3 +24,16 @@ rate_of_interest = 20
 
 simple_interest = principle*1*20 /100
 print(simple_interest)
+
+
+a = 1
+a = 10 ; b =20
+print(a, b)
+
+a,b,c = 10,20,30
+
+print(a,b,c)
+
+emp_no, ename, salary = 1001, "Rama", 20506
+
+print("{} employee no is {} who has salary of {}".format(ename, emp_no, salary))
