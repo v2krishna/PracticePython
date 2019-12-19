@@ -43,5 +43,18 @@ float()
 bool()
 str()
 
+bool(10) # anything non-zero is a true
+n = True
+type(n)
+
+bool(n) # True
+n =10
+bool(10)
+
+n = 0
+bool(n)  False
+
+n = -10
+bool(n) # True
 
 
