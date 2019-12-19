@@ -1,0 +1,23 @@
+Commenting
+    1) Single line
+    2) Multi Line
+
+# Program is Single line
+
+"""
+Multi line comments. anything between the quotes is multi-line comments
+"""
+
+
+Code Block
+============
+statement 1
+    statement 2
+    statement 3
+statement 4
+statement 5
+
+multiple variables
+===================
+v1 , v2 , v3 = val1, val2, val3
+
