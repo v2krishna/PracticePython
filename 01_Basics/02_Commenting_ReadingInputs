@@ -18,6 +18,30 @@ statement 4
 statement 5
 
 multiple variables
-===================
+===============================
 v1 , v2 , v3 = val1, val2, val3
+
+v1 = val1; v2 = val2; v3= val3;
+===============================
+
+a = None  # assigning the None to a variable
+
+=========================================
+User entering the values (input function)
+=========================================
+
+a = input() # prompt to read from the keyboards without any prompt
+
+========================
+Type Casting
+=======================
+Implicit Casting (automatic no need of explicitly converting the number type)
+Explicit Casting
+
+int()
+float()
+bool()
+str()
+
+
 
