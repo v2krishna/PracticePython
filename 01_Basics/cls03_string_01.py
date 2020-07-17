@@ -200,8 +200,8 @@ print(str2)
 # str_new = " ".join(str2)
 # print(str_new)
 ==========================================================================================================================================================
+remve the elements which are in other list
 str = "returns capitalized version of string more specifically it makes the first character have upper case and rest have lower case"
-
 l = ['of', 'the', 'an', 'a', 'have', 'are', 'you', 'is', 'was', 'had']
 str_list = str.split()
 
@@ -212,6 +212,86 @@ for element in str_list:
 
 new_str = " ".join(word)
 print(new_str)
-==========================================================================================================================================================
-"""
+=========================================================================================================================================================
+wrp to calculate number of occurrences of each character of a given string and return list of tuple 
+exampe of output , dont count space
+l = [('T', 1), ('h',1),('e',2) ...]
+s = "The quick brown fox jumps over lazy dog"
+count = 0
+l = []
+for ch in s:
+    if ch.isspace():
+        pass
+    else:
+        if (ch, s.count(ch)) not in l:
+            l.append((ch, s.count(ch)))
+print(l)
+=========================================================================================================================================================
+wrp to reverse a word on its own place from a given string.
+s = "The quick brown fox jumps over lazy dog"
+l = s.split()
+print(l)
+for element in range(len(l)):
+    l[element] = l[element][::-1]
+print(l)
+=========================================================================================================================================================
+wrp 
+s = input("Enter a string:")        #python
+n = int(input("enter a number:"))   #3
+# output "p1p2p3y1y2y3.....n1n2n3n"
+s2 = ""
+for ch in s:
+    for i in range(1,n+1):
+        s2 += ch+str(i)
+print(s2)
+=========================================================================================================================================================
+wrp to eliminate capital letters starting words from the string
+s = "The quick Brown fox jumps over lazy Dog"
+l = s.split()
+for element in l:
+    if element.istitle():
+        l.remove(element)
+print(l)
+s1 = " ".join(l)
+print(s1)
+=========================================================================================================================================================
+wrp to return numbers from a given string
+s = "g4g no3 in#py3"
+s2=""
+for ch in s:
+    if ch.isdigit():
+        s2 += ch
+print(s2)
+=========================================================================================================================================================
+s = "The quick Brown fox jumps over The lazy Dog"
+l = s.split()
+l2 =[]
+for element in l:
+     if [element[0]] not in l2:
+         l2.append([element[0], element])
+     else:
+         c = l2.index([element[0], element])
+         l2[c].append(element)
+print(l2)
+=========================================================================================================================================================
+s = "The quick Brown fox jumps over The lazy Dog"
+n = int(input("Enter number:"))
+#output n=2 ['Th' , 'e ', 'qu'   ...]
+l =[]
+for i in range(0,len(s),n):
+    l.append(s[i:i+n])
 
+print(l)
+=========================================================================================================================================================
+s = "The quick Brown fox jumps over The lazy Dog"
+#max occured character from a given string.
+max_count= 0
+max_count_char = ""
+for ch in s:
+    if not ch.isspace():
+        if s.count(ch) > max_count:
+            max_count_char=ch
+            max_count =s.count(ch)
+print(max_count_char)
+=========================================================================================================================================================
+"""
