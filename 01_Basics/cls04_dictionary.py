@@ -183,8 +183,8 @@ for i in range(0, len(words), 2):
         wd[words[i]] = words[i+1]
 print(wd)
 ==================================================================================================
-str = """ jan  year    feb  year    mar  year    apr  year    may  year    jun  year    jul  year    aug  year    sep  year    oct  year    nov  year    dec  year     win  year     spr  year     sum  year     aut  year     ann  year
-    9.0  1916   10.0  2019   12.1  2012   15.7  2011   17.2  2018   20.5  1940   23.3  2006   22.8  1995   19.4  1895   15.6  1921   11.6  2011   10.7  2015    8.59  1989   13.99  1893   20.99  1976   14.84  2006   13.54  2014"""
+str = ''' jan  year    feb  year    mar  year    apr  year    may  year    jun  year    jul  year    aug  year    sep  year    oct  year    nov  year    dec  year     win  year     spr  year     sum  year     aut  year     ann  year
+    9.0  1916   10.0  2019   12.1  2012   15.7  2011   17.2  2018   20.5  1940   23.3  2006   22.8  1995   19.4  1895   15.6  1921   11.6  2011   10.7  2015    8.59  1989   13.99  1893   20.99  1976   14.84  2006   13.54  2014'''
 # output {jan: 9.0, years:[1916,2019, 2012, 2011, 2018.. ], feb:10.0 , Mar: 12.1}
 words = str.split("   ")
 cd = {"years":[]}
@@ -207,5 +207,23 @@ for i in range(len(l)):
     cd[l[i]] = l1[i]
 print(cd)
 ==================================================================================================
+d = {'id':[], 'name':[], 'age':[], 'salary':[]}
+take user input for id, age- integer field,
+name: string
+salary:float
+take an input for how many inputs:
 
+d = {'id':[], 'name':[], 'age':[], 'salary':[]}
+n = int(input("enter no of inputs:"))
+for i in range(n):
+    for k in d :
+        if k == 'id' or k=='age':
+            d[k].append(int(input(f"please enter {k}")))
+        elif k == 'salary':
+            d[k].append(float(input(f"please enter {k}")))
+        elif k == 'name':
+            d[k].append(input(f"please enter {k}"))
+print(d)
+==================================================================================================
 """
+
