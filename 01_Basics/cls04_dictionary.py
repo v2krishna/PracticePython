@@ -108,4 +108,104 @@ print(d1)  # {'a':None, 'b':None,'c':None}
 print({}.fromkeys(s,10)) # {'a':10 , 'b':10,'c':10}
 
 
+==================================================================================================
+problems
+1)to count number of occurrences of characters of given string (The quick Brown fox jumps over The lazy Dog )
+s ="The quick Brown fox jumps over The lazy Dog"
+char_count_dict = {}
+for ch in s:
+    if ch in char_count_dict:
+        char_count_dict[ch] +=1
+    else:
+        char_count_dict[ch] =1
+print(char_count_dict)
+
+# using functions
+
+def char_count_dict(str):
+    char_count_dict ={}
+    for ch in str:
+        if ch in char_count_dict:
+            char_count_dict[ch] +=1
+        else:
+            char_count_dict[ch] =1
+    return char_count_dict
+
+s = "The quick Brown fox jumps over The lazy Dog"
+print(char_count_dict(s))
+==================================================================================================
+3)program to set words first character as key and remaining as a value, if the more than one word starting with same character, concat all the words
+{T:'TheTheThis'}
+==================================================================================================
+2)program to count number of occurrences of input word in a input string (The quick Brown fox jumps over The lazy Dog )
+def fn_word_count_dict(in_word, in_str):
+    words = in_str.split()
+    print(words)
+    word_count_dict = {}
+    for word in words:
+       if in_word == word:
+            if word in word_count_dict:
+                word_count_dict[in_word] +=1
+            else:
+                word_count_dict[in_word] = 1
+    if len(word_count_dict) == 0:
+        word_count_dict[in_word] = 0
+    return word_count_dict
+
+s = "The quick Brown fox jumps over The lazy Dog"
+w =  input("Enter a string:")
+print(fn_word_count_dict(w, s))
+==================================================================================================
+3)program to set words first character as key and remaining as a value, if the more than one word starting with same character, concat all the words
+{T:'TheTheThis'}
+str = "program to set words first character as key and remaining as a value if the more than one word starting with same character concat all the words"
+print(len(str.split()))
+cd = {}
+for ch in str.split():
+    if ch[0] not in cd:
+        cd[ch[0]] = ch
+    else:
+        cd[ch[0]] = cd[ch[0]] + " " + ch
+
+print(cd)
+==================================================================================================
+4) wrp to make even location word as a key and odd location word has a value from a given string.
+str = "program to set words first character as key and remaining as a value if the more than one word starting with same character concat all the wordsss"
+print(len(str.split()))
+wd = {}
+words = str.split()
+for i in range(0, len(words), 2):
+    print(i)
+    if i+1 >= len(words):
+        wd[words[i]] = "None"
+    else:
+        print(words[i])
+        wd[words[i]] = words[i+1]
+print(wd)
+==================================================================================================
+str = """ jan  year    feb  year    mar  year    apr  year    may  year    jun  year    jul  year    aug  year    sep  year    oct  year    nov  year    dec  year     win  year     spr  year     sum  year     aut  year     ann  year
+    9.0  1916   10.0  2019   12.1  2012   15.7  2011   17.2  2018   20.5  1940   23.3  2006   22.8  1995   19.4  1895   15.6  1921   11.6  2011   10.7  2015    8.59  1989   13.99  1893   20.99  1976   14.84  2006   13.54  2014"""
+# output {jan: 9.0, years:[1916,2019, 2012, 2011, 2018.. ], feb:10.0 , Mar: 12.1}
+words = str.split("   ")
+cd = {"years":[]}
+l= []
+l1 = []
+
+for word in words:
+    w = word.strip().split("  ")
+    #print(w)
+    if not w[1].isalpha():
+        cd['years'] .append(w[1])
+
+    if w[0].isalpha():
+        l.append(w[0])
+    else:
+        l1.append(w[0])
+print(l)
+print(l1)
+for i in range(len(l)):
+    cd[l[i]] = l1[i]
+print(cd)
+==================================================================================================
+
 """
