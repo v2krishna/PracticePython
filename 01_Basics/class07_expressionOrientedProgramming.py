@@ -25,6 +25,10 @@ Its small anonymous function can be created with lambda keyword
 
 Lambda function can be used whereever function objects are required.
 They are syntactically restricted to a single expression, symentically they are just syntatic sugar for normal  function definition
+
+When to lambda functions or normal functions
+Lambda function can be used where ever function objects are required.
+
 syntax:
 ======
 lambda params:expession condition
@@ -47,14 +51,158 @@ print(obj(3))
 print(obj(7))
 print(obj(15))
 
-Built-in Functions:
-==================
-1)enumerate (iterable, start=0)
-2)
+    Built-in Functions:
+========================
+1)enumerate (iterable, start=0) it return an enumerate object such that it returns a list of tuples containing
+ count (start = 0 ) and the values obtain from iteratring over iterable.
+l = ['a','b','c','d']
+e = enumerate(l)
+print(list(e))
+e1 = list(enumerate(l,1))
+print(e1)
+s = "Python Programming"
+e2 = list(enumerate(s,1))
+print(e2)
+
+2)zip(*iterables) -- it make an iterator that aggregates elements from each of the iterables.
+                     It returns iterator of tuples , where the i(th) tuple contains the i(th) element from each of the
+                     argument sequences.
+                     The Iterator stops when the shortest input iterable is exhausted with a single iterable argument.
+                     It returns an iterator of one tuple.
+                     With no arguments, it returns an empty iterator
+l1 =[1,2,3]
+l2 = [4,5,6]
+
+z1 = list(zip(l1,l2))
+print(z1)
+
+s1 = "python"
+s2="programming"
+print(list(zip(s1,s2)))
+print(list(zip(s1)))
+print(list(zip('')))
+
+3)map(fun,iterables) -- it returns an iterator that applies function to every item of iterable yielding the results
+if additional iterables are passes function must take that many arguments and is applied to the items from all iterables
+in parallel.
+With multiple iterables, the iterator stops when the  shortest input is exhausted.
+Map can be used to apply expression on iterables.
+
+l1 = [1,2,3]
+l2 = [4,5,6]
+
+m1 = list(map(lambda x,y : x+y , l1,l2))
+print(m1)
+
+s1 ="python"
+m2 = list(map(lambda x,y,z  :str(x)+str(y)+z , l1,l2,s1))
+print(m2)
+
+m3 = list(map(lambda x,y,z : str(x+y) +z, l1,l2,s1))
+print(m3)
+
+l3 = ['hello', 'world','welcome', 'to','python', 'programming']
+m4 = list(map(lambda x: x.title(), l3))
+print(m4)
+
+m = list(map(lambda x: x+'ly' if x.endswith('ing') else x+'ing', l3))
+print(m)
+
+m5 = list(map(lambda x: 'fizbuz' if x%3 ==0 and x%5==0 else 'fiz' if x%3==0 else 'buz' if x%5==0 else x, range(1,51)))
+print(m5)
+
+m1 = list(map(len, [ [1], [2], [3] ]))
+print(m1)
+
+m2 = list(map(lambda x: x.split(' '), 'a b c'))
+print(m2)
+
+4)filter(fun,iterable)
+======================
+It construct an iterator from those elements of iterable for which function returns true
+If function is None the identity function is assumed that is all elements of iterable that are false are removed.
+l1 = ['Hi', 'bye', 1, 2, 3, '4', 'c']
+f1 = list(filter(lambda x: type(x) == str , l1))
+print(f1)
+
+f2 = list(filter(lambda x: type(x)== int ,l1))
+print(f2)
+
+l3 = ['hello', 'world','welcome', 'to','python', 'programming']
+f3 = list(filter(lambda x : len(x)>4, l3))
+print(f3)
+
+f4 = list(filter(lambda x : len(x)<=5, l3))
+print(f4)
+
+l4 = [-2, 1 , 3, -4 ,9 ,8 ,1 , -1, -3]
+f5 = list(filter(lambda x : x >0 and x % 2 ==0, l4))
+print(f5)
+
+x1 = {'x': 1}
+y2 = {'y': 2}
+x3_y4 = {'x': 3, 'y': 4}
+
+m4 = list(filter(lambda d: 'x' in d.keys(), [ x1, y2, x3_y4 ]))
+print(m4)
+
+print(list(filter(str.swapcase, [ 'a', '1', 'b', '2' ])))
+
+5)functools.reduce(func,iterable,initializer)
+==============================================
+It applies function of two arguments cumulatively to the items of iterable from left to right, so as to reduce the function
+to a single value.
+If the optional initializer is present, its placed before the items of the iterable in the calculation and serves as default when iterable is empty.
+If the initializer is not given and iterable contains only one item , the first item is returned.
+
+import functools
+
+c = functools.reduce(lambda x,y : x+y , range(1,11))
+print(c)
+
+c = functools.reduce(lambda x,y : x+y , range(1,11),100)
+print(c)
+
+c = functools.reduce(lambda x,y : x+y , range(1,2))
+print(c)
+
+c = functools.reduce(lambda x,y : x+y , '', 'None')
+print(c)
+
+=====================================================
+cube = lambda x: x**3  # complete the lambda function
+
+def fibonacci(n):
+    # return a list of fibonacci numbers
+    f = lambda x: x if x == 0 or x == 1 else f(x-2 )+f(x-1)
+    l= list(map(f,range(n)))
+    return l
+
+if __name__ == '__main__':
+    n = int(input("Enter n:"))
+    print(list(map(cube, fibonacci(n))))
+==============================================================
+write a lambda expression and map function to replace string with a given characters
+given for string s , c1 and c2 , replace characters with c1 with c2 and c2 to c1
+
+s = "grrksfoegrrks"
+c1 ="e"
+c2 = "r"
+
+s1 = list(map(lambda s: s.replace(c1,c2) if c1 in s else s.replace(c2,c1), s))
+s2 ="".join(s1)
+print(s2)
+==============================================================
+find the number occuring odd number of times using lambda exp and reduce function.
+Given and list of positive integers
+
+import functools
+l =[1,2,3,2,3,1,2]
+f = lambda inp : functools.reduce(lambda a,b : a^b, inp)
+print(f(l))
+
+print("testing symmetric difference")
+print((((((1^2)^3)^2)^3)^1)^2)
+==============================================================
 """
-
-
-
-
-
 
