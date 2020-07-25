@@ -204,5 +204,11 @@ print(f(l))
 print("testing symmetric difference")
 print((((((1^2)^3)^2)^3)^1)^2)
 ==============================================================
-"""
+write a recursive Factorial using lambda function
+f = lambda x : 1 if x== 0 or x == 1 else x*f(x-1)
+print(f(5))
+==============================================================
+s = "Test the String replacement"
+print(s.replace("the","of"))
 
+"""
