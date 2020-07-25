@@ -181,7 +181,7 @@ def fibonacci(n):
 if __name__ == '__main__':
     n = int(input("Enter n:"))
     print(list(map(cube, fibonacci(n))))
-==============================================================
+============================================================================================================================
 write a lambda expression and map function to replace string with a given characters
 given for string s , c1 and c2 , replace characters with c1 with c2 and c2 to c1
 
@@ -192,7 +192,7 @@ c2 = "r"
 s1 = list(map(lambda s: s.replace(c1,c2) if c1 in s else s.replace(c2,c1), s))
 s2 ="".join(s1)
 print(s2)
-==============================================================
+============================================================================================================================
 find the number occuring odd number of times using lambda exp and reduce function.
 Given and list of positive integers
 
@@ -203,12 +203,62 @@ print(f(l))
 
 print("testing symmetric difference")
 print((((((1^2)^3)^2)^3)^1)^2)
-==============================================================
+============================================================================================================================
 write a recursive Factorial using lambda function
 f = lambda x : 1 if x== 0 or x == 1 else x*f(x-1)
 print(f(5))
-==============================================================
+============================================================================================================================
 s = "Test the String replacement"
 print(s.replace("the","of"))
+============================================================================================================================
+Given list of float  values , write a function to sort the output resulted list
+t = ['1.2', '.8', '19.8', '2.7', '99.8', '80.7'] # output['.8', '1.2', '2.7', '19.8', '80.7', '99.8']
 
+t = ['1.2', '.8', '19.8', '2.7', '99.8', '80.7']
+
+# a = list(map(lambda t: float(t), t))
+# a.sort()
+print(list(map(lambda a: str(a), sorted(list(map(lambda t: float(t), t))))))
+============================================================================================================================
+write a program to convert 3d list to 2d
+Input = [[[3], [4]], [[5], [6]], [[7], [8]]]
+ouput = [[3], [4], [5], [6], [7], [8]]
+method#1
+Input = [[[3], [4]], [[5], [6]], [[7], [8]]]
+output = []
+for elements in Input:
+   for i in elements:
+       print(i)
+       output.append(i)
+print(output)
+
+Input = [[[3], [4]], [[5], [6]], [[7], [8]]]
+output = [i for element in Input for i in element]
+print(output)
+
+=====================================================================
+wrp to convert mixed datatype tuple list to string list
+t = [('sts', 1, True), ('is', False), ('best', 2)]
+#output  = [('sts', '1', 'True'), ('is', 'False'), ('best', '2')]
+
+t = [('sts', 1, True), ('is', False), ('best', 2)]
+
+for element in t:
+    for ele in element:
+        print(str(ele))
+# o = [tuple(str(ele)) for elements in t for ele in elements]
+o = [tuple(map(str,i)) for i in t]
+print(o)
+
+=====================================================================
+wrp to convert string list to nested character list
+t = ["a, b, c", "gfg, is, best", "1, 2, 3"]
+output= [[‘a’, ‘b’, ‘c’], [‘gfg’, ‘is’, ‘best’], [‘1’, ‘2’, ‘3’]]
+t = ["a, b, c", "gfg, is, best", "1, 2, 3"]
+print(len(t))
+
+o = [list(map(str, i.split(', '))) for i in t]
+print(o)
+
+=====================================================================
 """
