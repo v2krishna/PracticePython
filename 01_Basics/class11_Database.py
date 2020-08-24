@@ -69,7 +69,7 @@ bytes                      blob
 
 """
 
-import sqlite3
+import sqlite3, random, time
 conn = sqlite3.connect("mysqldb1.db")
 c = conn.cursor()
 def create_table():
@@ -85,4 +85,71 @@ def insert_data():
 def read_data():
     c.execute("select * from example")
     print(c.fetchall())
-read_data()
+#read_data()
+
+def dynamic_entries():
+    id1 = random.randint(2,51)
+    n   = random.choice(['krishna','rama','Haan','kris','chris'])
+    a   = random.randint(23,65)
+    s   = random.randint(1000, 50000)
+    c.execute("insert into example (Id , Name, Age , Salaray) values (?, ?, ?,?)", (id1, n , a, s))
+    conn.commit()
+
+# for i in range(int(input("Enter a no of entries:"))):
+#     dynamic_entries()
+#     time.sleep(2)
+#
+
+def create_table2():
+    c.execute("create table colors (Id int, color text)")
+
+def dynamic_entries():
+    id1 = random.randint(2,51)
+    n   = random.choice(['red','green','blue','white'])
+
+    c.execute("insert into colors (Id , color) values (?, ?)", (id1, n ))
+    conn.commit()
+
+# create_table2()
+
+# for i in range(int(input("Enter a no of entries:"))):
+#     dynamic_entries()
+#     time.sleep(2)
+
+
+def left_join():
+    c.execute("select * from example e left outer join colors c on e.Id = c.Id ")
+    print(c.fetchall())
+
+# left_join()
+
+# def right_join():
+#     c.execute("select * from example e right inner join colors c on e.Id = c.Id ")
+#     print(c.fetchall())
+# right_join()
+
+# def semi_join():
+#     c.execute("select * from example e where exists (select  1 from colors c where e.Id = c.Id )")
+#     print(c.fetchall())
+# semi_join()
+
+# def inner_join():
+#     c.execute("select * from example e inner join colors c on e.Id = c.Id ")
+#     print(c.fetchall())
+# inner_join()
+
+# def anti_semi_join():
+#     c.execute("select * from example e where not exists (select 1 from colors c where c.Id = e.Id)")
+#     print(c.fetchall())
+# anti_semi_join()
+
+# def full_outer_join():
+#     c.execute("select * from example e full outer join colors c on e.Id = c.Id")
+#     print(c.fetchall())
+# full_outer_join()
+
+
+# def cross_apply_function():
+#     c.execute("select * from example e cross c apply colors c(e.Id)")
+#     print(c.fetchall())
+# cross_apply_function()
